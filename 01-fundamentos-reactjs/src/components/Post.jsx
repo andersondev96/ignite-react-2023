@@ -2,12 +2,13 @@ import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
 
-export function Post() {
+export function Post(props) {
+    console.log(props)
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src="https://scontent.fcnf1-1.fna.fbcdn.net/v/t39.30808-6/333536586_912718119916195_9180262128798549654_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeHBvrH1IXTCgCgeB7V5ljwZ57b4ipGj4sHntviKkaPiwV34xSCdjgF6aV2Rlazx_inUBeK6gQwmbozpF3fDOUwn&_nc_ohc=XV0xmVV80QQAX84S9WF&_nc_ht=scontent.fcnf1-1.fna&oh=00_AfBp0j579TQQLsLiBXNhtIH8dkDqyY36ShY-wWx8kVqk8A&oe=65D0FB27" />
+                    <Avatar src="https://scontent.fcnf1-1.fna.fbcdn.net/v/t39.30808-6/333536586_912718119916195_9180262128798549654_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=xGyNZJ6fshsAX-0TlVD&_nc_ht=scontent.fcnf1-1.fna&oh=00_AfAT_KsNumTUn5cWeHn_Ar1rFyyo6dx7B9be_qKCMUJAdw&oe=65DED2E7" />
                     <div className={styles.authorInfo}>
                         <strong>Anderson Fernandes</strong>
                         <span>Web Developer</span>
