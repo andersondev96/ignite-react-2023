@@ -1,8 +1,8 @@
 import { api } from '@/lib/axios'
 
-export interface CancelOrderParams {
+export interface cancelOrderParams {
   orderId: string
 }
-export async function CancelOrder({ orderId }: CancelOrderParams) {
+export async function cancelOrder({ orderId }: cancelOrderParams) {
   await api.patch(`/orders/${orderId}/cancel`)
 }
