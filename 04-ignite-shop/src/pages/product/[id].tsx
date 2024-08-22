@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Stripe from 'stripe'
 import { stripe } from '../../lib/stripe'
 import { ImageContainer, ProductContainer, ProductDetails } from '../../styles/pages/product'
@@ -15,6 +16,13 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
+	const { isFallback } = useRouter()
+
+	if (isFallback) {
+		return (
+			<p>Loading...</p>
+		)
+	}
 
 	return (
 		<ProductContainer>
@@ -36,11 +44,14 @@ export default function Product({ product }: ProductProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+	// Buscar os produtos mais vendidos / mais acessados
+
+
 	return {
 		paths: [
 			{ params: { id: 'prod_QfCFBlK0rMrPAN' }}
 		],
-		fallback: false,
+		fallback: 'blocking',
 	}
 }
 
