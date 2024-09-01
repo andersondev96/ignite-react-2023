@@ -1,9 +1,11 @@
+import * as Dialog from '@radix-ui/react-dialog'
 import axios from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import Stripe from 'stripe'
+import { CartModal } from '../../components/cartModal'
 import { stripe } from '../../lib/stripe'
 import { ImageContainer, ProductContainer, ProductDetails } from '../../styles/pages/product'
 
@@ -56,9 +58,16 @@ export default function Product({ product }: ProductProps) {
 
 				<p>{product.description}</p>
 
-				<button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>
-					Comprar agora
-				</button>
+				<Dialog.Root>
+					<Dialog.Trigger asChild>
+						<button>
+							Comprar agora
+						</button>	
+					</Dialog.Trigger>
+
+					<CartModal />
+				</Dialog.Root>
+				
 			</ProductDetails>
 		</ProductContainer>
 		</>
