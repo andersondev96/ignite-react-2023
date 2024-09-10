@@ -36,6 +36,11 @@ export const SuccessContainer = styled('main', {
 	}
 })
 
+export const ProductsContainer = styled('div', {
+	display: 'flex',
+	gap: '12px'
+})
+
 export const ImageContainer = styled('div', {
 	width: '100%',
 	maxWidth: 130,
