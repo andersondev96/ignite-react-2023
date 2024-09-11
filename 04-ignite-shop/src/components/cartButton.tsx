@@ -16,7 +16,9 @@ export function CartButton() {
 		<Dialog.Trigger asChild>
 			<Button>
 				<Tote size={32} weight="bold" />
-				<div>{cartCount}</div>
+				{cartCount > 0 && (
+					<div>{cartCount}</div>
+				)}
 			</Button>
 		</Dialog.Trigger>
 		<CartModal />

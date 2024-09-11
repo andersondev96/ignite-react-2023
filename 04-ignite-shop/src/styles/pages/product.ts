@@ -7,7 +7,13 @@ export const ProductContainer = styled('main', {
 	gap: '4rem',
 
 	maxWidth: 1180,
-	margin: '0 auto'
+	margin: '0 auto',
+
+	'@media only screen and (max-width: 600px)': {
+		gridTemplateColumns: '1fr',
+		alignItems: 'center',
+		padding: '1.5rem'
+	}
 })
 
 export const ImageContainer = styled('div', {
@@ -24,6 +30,12 @@ export const ImageContainer = styled('div', {
 
 	img: {
 		objectFit: 'cover'
+	},
+
+	'@media only screen and (max-width: 600px)': {
+		width: '100%',
+		maxWidth: 480,
+		height: '520px',
 	}
 
 })
@@ -35,6 +47,10 @@ export const ProductDetails = styled('div', {
 	h1: {
 		fontSize: '$2xl',
 		color: '$gray300',
+
+		'@media only screen and (max-width: 600px)': {
+			fontSize: '$xl'
+		}
 	},
 
 	span: {
@@ -42,6 +58,12 @@ export const ProductDetails = styled('div', {
 		display: 'block',
 		fontSize: '$2xl',
 		color: '$green300',
+
+		'@media only screen and (max-width: 600px)': {
+			fontSize: '$xl'
+		}
+
+
 	},
 
 	p: {
@@ -49,6 +71,11 @@ export const ProductDetails = styled('div', {
 		fontSize: '$md',
 		lineHeight: 1.6,
 		color: '$gray300',
+
+		'@media only screen and (max-width: 600px)': {
+			marginTop: '1rem',
+			fontSize: '$md'
+		}
 	},
 
 	button: {
@@ -69,6 +96,10 @@ export const ProductDetails = styled('div', {
 
 		'&:not(:disabled):hover': {
 			backgroundColor: '$green300',
+		},
+
+		'@media only screen and (max-width: 600px)': {
+			marginTop: '2rem'
 		}
 
 	},

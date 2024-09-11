@@ -5,7 +5,13 @@ export const HomeContainer = styled('main', {
 	width: '100%',
 	maxWidth: 'calc(100vw - ((100vw - 1180px) / 2 ))',
 	marginLeft: 'auto',
-	minHeight: 656
+	minHeight: 656,
+
+	'@media only screen and (max-width: 600px)': {
+			flexDirection: 'column',
+			alignItems: 'center',
+			maxWidth: '100%'
+		}
 });
 
 export const Product = styled('div', {
@@ -61,5 +67,11 @@ export const Product = styled('div', {
 			transform: 'translateY(0%)',
 			opacity: 1,
 		}	
-	}
+	},
+
+	'@media only screen and (max-width: 600px)': {
+			minWidth: '100%',
+			height: 'auto',
+			marginBottom: '1.5rem'
+		}
 });
