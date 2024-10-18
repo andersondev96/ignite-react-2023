@@ -9,6 +9,13 @@ export default {
 		src: 'https://github.com/andersondev96.png',
 		alt: 'Anderson Fernandes'
 	},
+	argTypes: {
+		src: {
+			control: {
+				type: 'text',
+			}
+		},
+	},
 } as Meta<AvatarProps>
 
 export const Primary: StoryObj<AvatarProps> = {}
