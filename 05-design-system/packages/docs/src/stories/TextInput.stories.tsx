@@ -32,5 +32,6 @@ export const WithPrefix: StoryObj<TextInputProps> = {
 export const Disabled: StoryObj<TextInputProps> = {
 	args: {
 		disabled: true,
+		placeholder: 'your-username'
 	}
 }
