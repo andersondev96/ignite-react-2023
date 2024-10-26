@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Container>
       <Hero>
-        <Heading as="h1" size="4xl">
+        <Heading as="h1" size="3xl">
           Agendamento descomplicado
         </Heading>
         <Text size="xl">
