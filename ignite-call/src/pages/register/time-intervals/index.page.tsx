@@ -10,11 +10,11 @@ import {
 import { ArrowRight } from 'phosphor-react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { api } from '../../../lib/axios'
+import { convertTimeStringToMinutes } from '../../../utils/convert-time-string-to-minutes'
 import { getWeekDays } from '../../../utils/get-week-days'
 import { Container, Header } from '../styles'
 
-import { api } from '@/src/lib/axios'
-import { convertTimeStringToMinutes } from '@/src/utils/convert-time-string-to-minutes'
 import {
   FormError,
   IntervalBox,
@@ -63,7 +63,6 @@ const timeIntervalsFormSchema = z.object({
 })
 
 type TimeIntervalsFormInput = z.input<typeof timeIntervalsFormSchema>
-
 type TimeIntervalsFormOutput = z.output<typeof timeIntervalsFormSchema>
 
 export default function TimeIntervals() {
@@ -73,7 +72,7 @@ export default function TimeIntervals() {
     control,
     watch,
     formState: { isSubmitting, errors },
-  } = useForm<TimeIntervalsFormInput, TimeIntervalsFormOutput>({
+  } = useForm<TimeIntervalsFormInput>({
     resolver: zodResolver(timeIntervalsFormSchema),
     defaultValues: {
       intervals: [
@@ -98,7 +97,7 @@ export default function TimeIntervals() {
   const intervals = watch('intervals')
 
   async function handleSetTimeIntervals(data: any) {
-    const { intervals } = data as TimeIntervalsFormInput
+    const { intervals } = data as TimeIntervalsFormOutput
 
     await api.post('/users/time-intervals', {
       intervals,
@@ -161,7 +160,7 @@ export default function TimeIntervals() {
         </IntervalContainer>
 
         {errors.intervals && (
-          <FormError size="sm">{errors.intervals.root?.message}</FormError>
+          <FormError size="sm">{errors.intervals.message}</FormError>
         )}
 
         <Button type="submit" disabled={isSubmitting}>
